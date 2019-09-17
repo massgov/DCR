@@ -1,0 +1,540 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+
+<title>DUAL-USE SHADING ANALYSIS TOOL</title>
+
+<link rel="stylesheet" href="styles.0aaeb1c7.css">
+<script src="for-delivery.e1ce39d3.js" type="text/javascript"></script>
+
+</head>
+
+<body> <div id="popup"> <div id="popup-text">This is the text for the popup alert box.</div>
+ <div id="dont-show">Don�t show this again<input type="checkbox" id="dont-show-checkbox" onChange="ai.dontShowPopup()"></div> 
+ <div id="popup-close" onClick="ai.closePopup(this)">OK</div> </div>
+ <div class="app" id="app"> <div class="header-container"> 
+ <div class="header-left">DUAL-USE SHADING ANALYSIS TOOL</div> 
+ <div class="header-right"><img class="header-logo" src="doer-logo.d14f8d17.png"></div> 
+ </div>  
+ <div class="tabs-container"> <div class="tab-container">
+ <div class="tab" id="dashboard-tab" onClick="ai.toggleTab('dashboard')">DASHBOARD</div></div> 
+ <div class="tab-container"><div class="tab" id="tracking-tab" onClick="ai.toggleTab('tracking')">TRACKING INPUT</div></div> 
+ <div class="tab-container"><div class="tab" id="dual-tab" onClick="ai.toggleTab('dual')">DUAL USE INFORMATION</div></div> </div> 
+ <div class="content-container" id="dashboard-container"> <div class="panels-container"> <div class="panel-left">  <div class="input-section-header">PANEL INFORMATION</div> 
+ <div class="input-section-row row-even" id="panel-length-row"> <div class="input-section-label">Panel Length (ft)</div> 
+ <div class="input-section-input"><input id="length" type="text" value="6.5" size="8"></div> 
+ <div class="input-section-info"><img class="info-icon" src="info-icon.5380e5cf.png" onClick="ai.showInfo('panel_length')"></div>  </div> 
+ <div class="input-section-row row-odd" id="panel-width-row"> <div class="input-section-label">Panel Width (ft)</div> 
+ <div class="input-section-input"><input id="width" type="text" value="3.25" size="8"></div> 
+ <div class="input-section-info"><img class="info-icon" src="info-icon.5380e5cf.png" onClick="ai.showInfo('panel_width')"></div>  </div>
+ <div class="input-section-row row-even" id="panel-wattage-row"> 
+ <div class="input-section-label">Panel Wattage (W)</div> <div class="input-section-input"><input id="wattage" type="text" value="250" size="8"></div> 
+ <div class="input-section-info"><img class="info-icon" src="info-icon.5380e5cf.png" onClick="ai.showInfo('panel_wattage')"></div>  </div>  
+ <div class="input-section-header">TABLE DIMENSIONS<img class="info-icon" style="top:4px;left:84px" src="info-icon.5380e5cf.png" onClick="ai.showInfo('table_dimensions')"></div> 
+ <div class="input-section-row row-even" id="panel-orientation-row"> <div class="input-section-label">Panel Orientation</div> 
+ <div class="input-section-input"> <select id="orientation"> <option value="portrait" selected>Portrait</option> <option value="landscape">Landscape</option> </select> </div> 
+ <div class="input-section-info"><img class="info-icon" src="info-icon.5380e5cf.png" onClick="ai.showInfo('panel_orientation')"></div>  </div> 
+ <div class="input-section-row row-odd" id="panel-wide-row"> <div class="input-section-label">Panels Wide (#)</div> 
+ <div class="input-section-input"><input id="panelswide" type="text" value="2" size="8"></div> <div class="input-section-info"><img class="info-icon" src="info-icon.5380e5cf.png" onClick="ai.showInfo('panels_wide')"></div></div> 
+<div class="input-section-row row-even" id="panel-tall-row"> 
+<div class="input-section-label">Panels Tall (#)</div> 
+<div class="input-section-input"><input id="panelstall" type="text" value="2" size="8"></div> 
+<div class="input-section-info"><img class="info-icon" src="info-icon.5380e5cf.png" onClick="ai.showInfo('panels_tall')"></div>  </div>
+<div class="input-section-row row-odd" id="space-hor-row"> 
+<div class="input-section-label">Space B/t Panels (hor.) (ft)</div> 
+<div class="input-section-input"><input id="hspace" type="text" value="0" size="8"></div> 
+<div class="input-section-info"><img class="info-icon" src="info-icon.5380e5cf.png" onClick="ai.showInfo('space_bt_panels_hor')"></div>  </div> 
+<div class="input-section-row row-even" id="space-vert-row"> 
+<div class="input-section-label">Space B/t Panels (vert.) (ft)</div> 
+<div class="input-section-input"><input id="vspace" type="text" value="0" size="8"></div> 
+<div class="input-section-info"><img class="info-icon" src="info-icon.5380e5cf.png" onClick="ai.showInfo('space_bt_panels_vert')"></div>  </div> 
+<div class="input-section-row row-odd" id="tilt-row"> 
+<div class="input-section-label">Tilt (degrees)</div> 
+<div class="input-section-input"><input id="tilt" type="text" value="20" size="8"></div> 
+<div class="input-section-info"><img class="info-icon" src="info-icon.5380e5cf.png" onClick="ai.showInfo('tilt')"></div>  </div> 
+<div class="input-section-row row-even" id="azimuth-row"> 
+<div class="input-section-label">Azimuth (degrees)</div> 
+<div class="input-section-input"><input id="azimuth" type="text" value="180" size="8"></div> 
+<div class="input-section-info"><img class="info-icon" src="info-icon.5380e5cf.png" onClick="ai.showInfo('azimuth')"></div>  </div> 
+<div class="input-section-row row-odd" id="top-height-row"> 
+<div class="input-section-label">Top Height (ft)</div> 
+<div class="input-section-input"><div class="system-input" id="topheight"></div></div> 
+<div class="input-section-info"><img class="info-icon" src="info-icon.5380e5cf.png" onClick="ai.showInfo('top_height')"></div>  </div> 
+<div class="input-section-row row-even" id="center-height-row"> 
+<div class="input-section-label">Center Height (ft)</div> 
+<div class="input-section-input"><input id="height" type="text" value="10" size="8"></div> 
+<div class="input-section-info"><img class="info-icon" src="info-icon.5380e5cf.png" onClick="ai.showInfo('center_height')"></div>  </div> 
+<div class="input-section-row row-odd" id="bottom-height-row">
+<div class="input-section-label">Bottom Height (ft)</div> 
+<div class="input-section-input"><div class="system-input" id="bottomheight"></div></div> 
+<div class="input-section-info"><img class="info-icon" src="info-icon.5380e5cf.png" onClick="ai.showInfo('bottom_height')"></div>  </div>  
+<div class="input-section-header">OTHER DESIGN PARAMETERS</div> 
+<div class="input-section-row row-even" id="tables-wide-row">
+<div class="input-section-label">Tables Wide (#)</div> 
+<div class="input-section-input"><input id="tableswide" type="text" value="8" size="8"></div>
+<div class="input-section-info">
+<img class="info-icon" src="info-icon.5380e5cf.png" onClick="ai.showInfo('tables_wide')"></div>  </div>
+<div class="input-section-row row-odd" id="tables-space-row"> 
+<div class="input-section-label">Space Between Tables (ft)</div> 
+<div class="input-section-input"><input id="colspace" type="text" value="0" size="8"></div> 
+<div class="input-section-info"><img class="info-icon" src="info-icon.5380e5cf.png" onClick="ai.showInfo('space_between_tables')"></div>  </div> 
+<div class="input-section-row row-even" id="num-rows-row"> 
+<div class="input-section-label">Rows (#)</div> <div class="input-section-input"><input id="numrows" type="text" value="4" size="8"></div> 
+<div class="input-section-info"><img class="info-icon" src="info-icon.5380e5cf.png" onClick="ai.showInfo('num_of_rows')"></div>  </div> 
+<div class="input-section-row row-odd" id="inter-row-row"> 
+<div class="input-section-label">Inter-Row Spacing (ft)</div> 
+<div class="input-section-input"><input id="rowspace" type="text" value="12" size="8"></div> 
+<div class="input-section-info"><img class="info-icon" src="info-icon.5380e5cf.png" onClick="ai.showInfo('inter_row_spacing')"></div>  </div> 
+<div class="input-section-row row-even" id="tracking-row"> 
+<div class="input-section-label">Tracking</div> 
+<div class="input-section-input"> <select id="tracking"> <option value="none">No Tracking</option> <option value="single">Single-Axis Tracking</option> <option value="dual">Dual-Axis Tracking</option> </select> </div> 
+<div class="input-section-info"><img class="info-icon" src="info-icon.5380e5cf.png" onClick="ai.showInfo('tracking')"></div>  </div> 
+<div class="control-buttons-row"> <img class="info-icon" style="position:absolute;top:-18px;left:188px;" src="info-icon.5380e5cf.png" onClick="ai.showInfo('set_study_area_instructions')"> 
+<div class="control-button-cell">
+<div class="control-button" id="establish-table">SET<br>DESIGN</div></div> 
+<div class="control-button-cell"><div class="control-button" id="clear-design">CLEAR<br>DESIGN</div></div> 
+<div class="control-button-cell"><div class="control-button" id="set-study-area">SET<br>STUDY<br>AREA</div></div> 
+<div class="control-button-cell"><div class="control-button" id="clear-study-area">CLEAR<br>STUDY<br>AREA</div></div> </div> </div>  
+<div class="panel-center">
+<div class="panel-center-inner"> 
+<div id="zoomoverview"> <div id="thebox"> </div> 
+<canvas id="miniarray"></canvas> </div> 
+<div id="zczc"> <div id="zoomcontainer"> <canvas id="zoomshade" width="2875" height="2875"></canvas> </div> </div> 
+<canvas id="legend" width="575" height="575"></canvas>
+<canvas id="panels" width="575" height="575"></canvas> 
+<canvas id="studyarea" width="575" height="575"></canvas> 
+<canvas id="shade" width="575" height="575"></canvas> 
+<canvas class="shadec" id="shade0" width="575" height="575"></canvas> 
+<canvas class="shadec" id="shade1" width="575" height="575"></canvas> 
+<canvas class="shadec" id="shade2" width="575" height="575"></canvas> 
+<canvas class="shadec" id="shade3" width="575" height="575"></canvas> 
+<canvas class="shadec" id="shade4" width="575" height="575"></canvas> 
+<canvas class="shadec" id="shade5" width="575" height="575"></canvas> 
+<canvas class="shadec" id="shade6" width="575" height="575"></canvas> 
+<canvas class="shadec" id="shade7" width="575" height="575"></canvas>
+ <canvas class="shadec" id="shade8" width="575" height="575"></canvas> 
+ <canvas class="shadec" id="shade9" width="575" height="575"></canvas> 
+ 
+ <div id="pctcompletecontainer" width="575"> <span id="pctcomplete" class="bottom-section-label">%COMPLETE</span> 
+ <span id="showpanels" class="bottom-section-label"><input type="checkbox" style="float:left" id="toggleArray" checked>Array</span> 
+ <span id="showstudyarea" class="bottom-section-label"><input type="checkbox" style="float:left" id="toggleStudyArea" checked>Study Area</span> 
+ <span id="showshademap" class="bottom-section-label"><input type="checkbox" style="float:left" id="toggleShadeMap" checked>Shade Map</span> 
+ <span id="showzoom" class="bottom-section-label"><input type="checkbox" style="float:left" id="toggleZoom">Zoom</span> 
+ <div class="button" id="calculate-shade">CALCULATE</div> </div> </div> </div>  
+ <div class="panel-right">  <div class="input-section-header">SUN ANGLE</div> 
+ <div class="input-section-row row-even" id="location-row"> 
+ <div class="input-section-label">Location</div> 
+ <div class="input-section-input"> <select id="location" style="position:relative;right:6px;"> <option value="eastern">Eastern MA</option> <option value="central">Central MA</option> <option value="western">Western MA</option> </select> </div> 
+ <div class="input-section-info"><img class="info-icon" style="position:relative;right:6px;" src="info-icon.5380e5cf.png" onClick="ai.showInfo('sun_angle')"></div>  </div> 
+ <div class="input-section-header">STUDY PERIOD</div> 
+ <div style="background:#edeff7"> 
+ <div class="input-section-row row-even"> 
+ <div class="study-period-filter"> 
+ <div style="display:inline-block;position:relative;top:2px"><input type="checkbox" id="checkall"></div> 
+ <div style="display:inline-block"><label for="checkall">Check All</label></div> </div> 
+ <div class="study-period-filter"> 
+ <div style="display:inline-block;position:relative;top:2px"><input type="checkbox" id="clearall"></div> 
+ <div style="display:inline-block"><label for="clearall">Clear All</label></div> </div> 
+ <div class="study-period-filter"> <div style="display:inline-block;position:relative;top:2px"><input type="checkbox" id="smartwindow" checked></div> 
+ <div style="display:inline-block"><label for="smartwindow">SMART Window</label></div> </div> </div> 
+ <div class="input-section-row row-even" id="study-period-row"> <div class="study-period-row"> 
+ <div class="study-period-input"> 
+ <div style="display:inline-block;position:relative;top:2px"><input type="checkbox" id="JAN"></div> 
+ <div style="display:inline-block"><label for="JAN">JAN</label></div> </div> 
+ <div class="study-period-input"> 
+ <div style="display:inline-block;position:relative;top:2px"><input type="checkbox" id="FEB"></div> 
+ <div style="display:inline-block"><label for="FEB">FEB</label></div> </div> 
+ <div class="study-period-input" style="background:#4682b4;color:#fff"> 
+ <div style="display:inline-block;position:relative;top:2px"><input type="checkbox" id="MAR"></div> 
+ <div style="display:inline-block"><label for="MAR">MAR</label></div> </div> 
+ <div class="study-period-input" style="background:#4682b4;color:#fff"> 
+ <div style="display:inline-block;position:relative;top:2px"><input type="checkbox" id="APR"></div> 
+ <div style="display:inline-block"><label for="APR">APR</label></div> </div> </div> 
+ <div class="study-period-row"> <div class="study-period-input" style="background:#4682b4;color:#fff"> 
+ <div style="display:inline-block;position:relative;top:2px"><input type="checkbox" id="MAY"></div> 
+ <div style="display:inline-block"><label for="MAY">MAY</label></div> </div> 
+ <div class="study-period-input" style="background:#4682b4;color:#fff"> 
+ <div style="display:inline-block;position:relative;top:2px"><input type="checkbox" id="JUN"></div> 
+ <div style="display:inline-block"><label for="JUN">JUN</label></div> </div> 
+ <div class="study-period-input" style="background:#4682b4;color:#fff"> 
+ <div style="display:inline-block;position:relative;top:2px"><input type="checkbox" id="JUL"></div> 
+ <div style="display:inline-block"><label for="JUL">JUL</label></div> </div> 
+ <div class="study-period-input" style="background:#4682b4;color:#fff"> 
+ <div style="display:inline-block;position:relative;top:2px"><input type="checkbox" id="AUG"></div> 
+ <div style="display:inline-block"><label for="AUG">AUG</label></div> </div> </div> 
+ <div class="study-period-row"> <div class="study-period-input" style="background:#4682b4;color:#fff"> 
+ <div style="display:inline-block;position:relative;top:2px"><input type="checkbox" id="SEP"></div> 
+ <div style="display:inline-block"><label for="SEP">SEP</label></div> </div> <div class="study-period-input" style="background:#4682b4;color:#fff"> 
+ <div style="display:inline-block;position:relative;top:2px"><input type="checkbox" id="OCT"></div> 
+ <div style="display:inline-block"><label for="OCT">OCT</label></div> </div> <div class="study-period-input"> 
+ <div style="display:inline-block;position:relative;top:2px"><input type="checkbox" id="NOV"></div> 
+ <div style="display:inline-block"><label for="NOV">NOV</label></div> </div> 
+ <div class="study-period-input"> 
+ <div style="display:inline-block;position:relative;top:2px"><input type="checkbox" id="DEC"></div> 
+ <div style="display:inline-block"><label for="DEC">DEC</label></div> </div> </div> 
+ <div class="input-section-info" style="position:relative;top:18px;left:2px"><img class="info-icon" src="info-icon.5380e5cf.png" onClick="ai.showInfo('study_period')"></div>  </div> </div>  
+ <div class="input-section-header">STUDY AREA METRICS</div> 
+ <div class="input-section-row row-even" id="study-area-row"> 
+ <div class="input-section-label"><span style="position:relative;top:2px">Study Area (SF)</span></div> 
+ <div class="input-section-input"><span id="labelStudyArea" style="font-size:12px"></span></div> 
+ <div class="input-section-info" style="margin-left:2px;"><img class="info-icon" src="info-icon.5380e5cf.png" onClick="ai.showInfo('study_area')"></div>  </div> 
+ <div class="input-section-row row-odd" id="capacity-row"> 
+ <div class="input-section-label"><span style="position:relative;top:2px">Capacity in Study Area (kWdc)</span></div> 
+ <div class="input-section-input"><span id="labelCapacity" style="font-size:12px"></span></div> 
+ <div class="input-section-info" style="margin-left:2px;"><img class="info-icon" src="info-icon.5380e5cf.png" onClick="ai.showInfo('capacity')"></div>  </div> 
+ <div class="input-section-tabs-container"> 
+ <div class="input-section-tab input-section-active" id="shade-tab" onClick="ai.toggleShadeTab('shade')">PERCENT SHADE</div> 
+ <div class="input-section-tab" id="sun-tab" onClick="ai.toggleShadeTab('sun')">PERCENT SUN</div> </div> <div class="shade-section-border"> 
+ <div class="input-section-row row-even" id="max-shade-row"> <div class="input-section-label"><span id="max-shade-label" style="position:relative;top:2px">Maximum Shade</span></div> 
+ <div class="input-section-input"><span id="maxShade" style="font-size:12px"></span></div> 
+ <div class="input-section-info" style="margin-left:2px;"><img class="info-icon" src="info-icon.5380e5cf.png" onClick="ai.showInfo('shade_sun_1')"></div>  </div> 
+ <div class="input-section-row row-odd" id="min-shade-row"> <div class="input-section-label"><span id="min-shade-label" style="position:relative;top:2px">Minimum Shade</span></div> 
+ <div class="input-section-input"><span id="minShade" style="font-size:12px"></span></div> <div class="input-section-info" style="margin-left:2px;"><img class="info-icon" src="info-icon.5380e5cf.png" onClick="ai.showInfo('shade_sun_2')"></div>  </div> 
+ <div class="input-section-row row-even" id="avg-shade-row"> 
+ <div class="input-section-label"><span id="avg-shade-label" style="position:relative;top:2px">Average Shade</span></div> 
+ <div class="input-section-input"><span id="avgShade" style="font-size:12px"></span></div> 
+ <div class="input-section-info" style="margin-left:2px;"><img class="info-icon" src="info-icon.5380e5cf.png" onClick="ai.showInfo('shade_sun_3')"></div>  </div> </div>  
+ <div id="percent-shade-container"> <div class="shade-section-border"> 
+ <div class="input-section-row row-odd"> <input style="position:relative;top:5px" type="checkbox" id="checklabel0" checked> 
+ <div class="input-section-label"><span id="text0to10" style="position:relative;top:2px">0% � 10% Shade</span></div> 
+ <div class="color-swatch" id="0-10-swatch" style="background:#45ff45"></div> 
+ <div class="input-section-input"><span id="label0to10"></span></div> 
+ <div class="input-section-info"></div> </div> <div class="input-section-row row-even"> <input style="position:relative;top:5px" type="checkbox" id="checklabel1" checked> 
+ <div class="input-section-label"><span id="text10to20" style="position:relative;top:2px">10% � 20% Shade</span></div> 
+ <div class="color-swatch" id="10-20-swatch" style="background:#6eff6e"></div> 
+ <div class="input-section-input"><span id="label10to20"></span></div> 
+ <div class="input-section-info"></div> </div> <div class="input-section-row row-odd"> <input style="position:relative;top:5px" type="checkbox" id="checklabel2" checked>
+ <div class="input-section-label"><span id="text20to30" style="position:relative;top:2px">20% � 30% Shade</span></div>
+  <div class="color-swatch" id="20-30-swatch" style="background:#98ff98"></div> 
+  <div class="input-section-input"><span id="label20to30"></span></div> 
+  <div class="input-section-info"></div> </div> 
+  <div class="input-section-row row-even"> <input style="position:relative;top:0" type="checkbox" id="checklabel3" checked> 
+  <div class="input-section-label"><span id="text30to40" style="position:relative;top:2px">30% � 40% Shade</span></div> 
+  <div class="color-swatch" id="30-40-swatch" style="background:#c2ffc2"></div> 
+  <div class="input-section-input"><span id="label30to40"></span></div> 
+  <div class="input-section-info"></div> </div>
+  <div class="input-section-row row-odd"> <input style="position:relative;top:0" type="checkbox" id="checklabel4" checked> 
+  <div class="input-section-label"><span id="text40to50" style="position:relative;top:2px">40% � 50% Shade</span></div> 
+  <div class="color-swatch" id="40-50-swatch" style="background:#ebffeb"></div> <div class="input-section-input"><span id="label40to50"></span></div>
+  <div class="input-section-info"></div> </div> </div> 
+  <div class="shade-section-border"> 
+  <div class="input-section-row row-even"> <input style="position:relative;top:0" type="checkbox" id="checklabel5" checked> 
+  <div class="input-section-label"><span id="text50to60" style="position:relative;top:2px">50% � 60% Shade</span></div> 
+  <div class="color-swatch" id="50-60-swatch" style="background:#ffebeb"></div> 
+  <div class="input-section-input"><span id="label50to60"></span></div> 
+  <div class="input-section-info"></div> </div> 
+  <div class="input-section-row row-odd"> <input style="position:relative;top:0" type="checkbox" id="checklabel6" checked> 
+  <div class="input-section-label"><span id="text60to70" style="position:relative;top:2px">60% � 70% Shade</span></div>
+   <div class="color-swatch" id="60-70-swatch" style="background:#ffc2c2"></div> 
+   <div class="input-section-input"><span id="label60to70"></span></div> 
+   <div class="input-section-info"></div> </div> <div class="input-section-row row-even"> <input style="position:relative;top:0" type="checkbox" id="checklabel7" checked> 
+   <div class="input-section-label"><span id="text70to80" style="position:relative;top:2px">70% � 80% Shade</span></div> 
+   <div class="color-swatch" id="70-80-swatch" style="background:#ff9898"></div>
+    <div class="input-section-input"><span id="label70to80"></span></div> 
+    <div class="input-section-info"></div> </div> 
+    <div class="input-section-row row-odd"> <input style="position:relative;top:0" type="checkbox" id="checklabel8" checked> 
+    <div class="input-section-label"><span id="text80to90" style="position:relative;top:2px">80% � 90% Shade</span></div> 
+    <div class="color-swatch" id="80-90-swatch" style="background:#ff6e6e"></div> 
+    <div class="input-section-input"><span id="label80to90"></span></div>
+     <div class="input-section-info"></div> </div> <div class="input-section-row row-even"> <input style="position:relative;top:0" type="checkbox" id="checklabel9" checked> 
+     <div class="input-section-label"><span id="text90to100" style="position:relative;top:2px">90% � 100% Shade</span></div> 
+     <div class="color-swatch" id="90-100-swatch" style="background:#ff4545"></div> <div class="input-section-input"><span id="label90to100"></span></div> 
+     <div class="input-section-info"></div> </div> </div> 
+     <div class="button" id="export">EXPORT</div> </div> </div>  </div> </div> 
+     <div class="content-container" id="tracking-container"> 
+<div class="panels-container"> <div class="tracking-panel-left"> 
+<div><br>Current tracking mode: <span id="tracking-mode-label">No Tracking.</span><br><br></div> 
+     
+<table class="tracking-table"> 
+     
+<tr> <td class="tracking-heading-cell">Day</td>
+<td class="tracking-heading-cell">Time</td> 
+<td class="tracking-heading-cell">Tilt (degrees)</td> 
+<td class="tracking-heading-cell">Azimuth</td> </tr> </table> 
+     
+     <table class="tracking-table"> <tr> <td class="tracking-day-cell" rowspan="5">Jan 15</td> 
+     <td class="tracking-time-cell">10:00</td> 
+     <td class="tracking-tilt-cell"><input id="tilt-1-1000" type="text" value=""></td>
+      <td class="tracking-azimuth-cell"><input id="az-1-1000" type="text" value=""></td> </tr> 
+     <tr> <td class="tracking-time-cell">11:00</td> 
+     <td class="tracking-tilt-cell"><input id="tilt-1-1100" type="text" value=""></td> 
+     <td class="tracking-azimuth-cell"><input id="az-1-1100" type="text" value=""></td> </tr> 
+     <tr> <td class="tracking-time-cell">12:00</td> 
+     <td class="tracking-tilt-cell"><input id="tilt-1-1200" type="text" value=""></td> 
+     <td class="tracking-azimuth-cell"><input id="az-1-1200" type="text" value=""></td> 
+     </tr> <tr> <td class="tracking-time-cell">1:00</td> 
+     <td class="tracking-tilt-cell"><input id="tilt-1-1300" type="text" value=""></td> 
+     <td class="tracking-azimuth-cell"><input id="az-1-1300" type="text" value=""></td> </tr> 
+     <tr> <td class="tracking-time-cell">2:00</td> 
+     <td class="tracking-tilt-cell"><input id="tilt-1-1400" type="text" value=""></td>
+      <td class="tracking-azimuth-cell"><input id="az-1-1400" type="text" value=""></td> </tr> </table> 
+      
+<table class="tracking-table"> 
+<tr> <td class="tracking-day-cell" rowspan="6">Feb 15</td> 
+<td class="tracking-time-cell">10:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-2-1000" type="text" value=""></td> 
+ <td class="tracking-azimuth-cell"><input id="az-2-1000" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">11:00</td>
+<td class="tracking-tilt-cell"><input id="tilt-2-1100" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-2-1100" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">12:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-2-1200" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-2-1200" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">1:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-2-1300" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-2-1300" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">2:00</td>
+<td class="tracking-tilt-cell"><input id="tilt-2-1400" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-2-1400" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">3:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-2-1500" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-2-1500" type="text" value=""></td> </tr> </table> 
+<table class="tracking-table"> <tr> <td class="tracking-day-cell" rowspan="7">Mar 15</td> 
+<td class="tracking-time-cell">10:00</td>
+<td class="tracking-tilt-cell"><input id="tilt-3-1000" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-3-1000" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">11:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-3-1100" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-3-1100" type="text" value=""></td> </tr>
+<tr> <td class="tracking-time-cell">12:00</td>
+<td class="tracking-tilt-cell"><input id="tilt-3-1200" type="text" value=""></td>
+<td class="tracking-azimuth-cell"><input id="az-3-1200" type="text" value=""></td> </tr>
+<tr> <td class="tracking-time-cell">1:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-3-1300" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-3-1300" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">2:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-3-1400" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-3-1400" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">3:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-3-1500" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-3-1500" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">4:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-3-1600" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-3-1600" type="text" value=""></td> </tr> </table> 
+<table class="tracking-table"> 
+<tr> <td class="tracking-day-cell" rowspan="9">Apr 15</td> 
+<td class="tracking-time-cell">9:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-4-900" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-4-900" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">10:00</td>
+<td class="tracking-tilt-cell"><input id="tilt-4-1000" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-4-1000" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">11:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-4-1100" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-4-1100" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">12:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-4-1200" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-4-1200" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">1:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-4-1300" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-4-1300" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">2:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-4-1400" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-4-1400" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">3:00</td> <td class="tracking-tilt-cell"><input id="tilt-4-1500" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-4-1500" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">4:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-4-1600" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-4-1600" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">5:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-4-1700" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-4-1700" type="text" value=""></td> </tr> </table> 
+<table class="tracking-table"> <tr> <td class="tracking-day-cell" rowspan="9">May 15</td> 
+<td class="tracking-time-cell">9:00</td> <td class="tracking-tilt-cell"><input id="tilt-5-900" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-5-900" type="text" value=""></td> </tr> <tr> <td class="tracking-time-cell">10:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-5-1000" type="text" value=""></td> <td class="tracking-azimuth-cell"><input id="az-5-1000" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">11:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-5-1100" type="text" value=""></td>
+<td class="tracking-azimuth-cell"><input id="az-5-1100" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">12:00</td> <td class="tracking-tilt-cell"><input id="tilt-5-1200" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-5-1200" type="text" value=""></td> </tr> <tr> <td class="tracking-time-cell">1:00</td>
+<td class="tracking-tilt-cell"><input id="tilt-5-1300" type="text" value=""></td> <td class="tracking-azimuth-cell"><input id="az-5-1300" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">2:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-5-1400" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-5-1400" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">3:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-5-1500" type="text" value=""></td>
+<td class="tracking-azimuth-cell"><input id="az-5-1500" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">4:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-5-1600" type="text" value=""></td>
+<td class="tracking-azimuth-cell"><input id="az-5-1600" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">5:00</td> <td class="tracking-tilt-cell"><input id="tilt-5-1700" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-5-1700" type="text" value=""></td> </tr> </table> 
+
+<table class="tracking-table"> 
+<tr> <td class="tracking-day-cell" rowspan="9">Jun 15</td> 
+<td class="tracking-time-cell">9:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-6-900" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-6-900" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">10:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-6-1000" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-6-1000" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">11:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-6-1100" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-6-1100" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">12:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-6-1200" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-6-1200" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">1:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-6-1300" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-6-1300" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">2:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-6-1400" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-6-1400" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">3:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-6-1500" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-6-1500" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">4:00</td> <td class="tracking-tilt-cell"><input id="tilt-6-1600" type="text" value=""></td> <td class="tracking-azimuth-cell"><input id="az-6-1600" type="text" value=""></td> </tr> <tr> <td class="tracking-time-cell">5:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-6-1700" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-6-1700" type="text" value=""></td> </tr> </table> </div> 
+<div class="tracking-panel-right"> <div><br>Change tracking mode via dropdown on Dashboard.<br><br></div> 
+
+<table class="tracking-table"> 
+<tr> <td class="tracking-heading-cell">Day</td> 
+<td class="tracking-heading-cell">Time</td> 
+<td class="tracking-heading-cell">Tilt (degrees)</td> 
+<td class="tracking-heading-cell">Azimuth</td> </tr> </table> 
+
+<table class="tracking-table"> 
+<tr> <td class="tracking-day-cell" rowspan="9">Jul 15</td> 
+<td class="tracking-time-cell">9:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-7-900" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-7-900" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">10:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-7-1000" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-7-1000" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">11:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-7-1100" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-7-1100" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">12:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-7-1200" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-7-1200" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">1:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-7-1300" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-7-1300" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">2:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-7-1400" type="text" value=""></td>
+<td class="tracking-azimuth-cell"><input id="az-7-1400" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">3:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-7-1500" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-7-1500" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">4:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-7-1600" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-7-1600" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">5:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-7-1700" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-7-1700" type="text" value=""></td> </tr> </table> 
+<table class="tracking-table"> <tr> <td class="tracking-day-cell" rowspan="9">Aug 15</td> 
+<td class="tracking-time-cell">9:00</td> <td class="tracking-tilt-cell"><input id="tilt-8-900" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-8-900" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">10:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-8-1000" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-8-1000" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">11:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-8-1100" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-8-1100" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">12:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-8-1200" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-8-1200" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">1:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-8-1300" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-8-1300" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">2:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-8-1400" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-8-1400" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">3:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-8-1500" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-8-1500" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">4:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-8-1600" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-8-1600" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">5:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-8-1700" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-8-1700" type="text" value=""></td> </tr> </table> 
+<table class="tracking-table"> <tr> <td class="tracking-day-cell" rowspan="9">Sep 15</td> 
+<td class="tracking-time-cell">9:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-9-900" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-9-900" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">10:00</td> <td class="tracking-tilt-cell"><input id="tilt-9-1000" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-9-1000" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">11:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-9-1100" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-9-1100" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">12:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-9-1200" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-9-1200" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">1:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-9-1300" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-9-1300" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">2:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-9-1400" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-9-1400" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">3:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-9-1500" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-9-1500" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">4:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-9-1600" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-9-1600" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">5:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-9-1700" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-9-1700" type="text" value=""></td> </tr> </table> 
+<table class="tracking-table"> <tr> <td class="tracking-day-cell" rowspan="7">Oct 15</td> 
+<td class="tracking-time-cell">10:00</td> <td class="tracking-tilt-cell"><input id="tilt-10-1000" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-10-1000" type="text" value=""></td> </tr> <tr> <td class="tracking-time-cell">11:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-10-1100" type="text" value=""></td> <td class="tracking-azimuth-cell"><input id="az-10-1100" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">12:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-10-1200" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-10-1200" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">1:00</td> <td class="tracking-tilt-cell"><input id="tilt-10-1300" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-10-1300" type="text" value=""></td> </tr> <tr> <td class="tracking-time-cell">2:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-10-1400" type="text" value=""></td> <td class="tracking-azimuth-cell"><input id="az-10-1400" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">3:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-10-1500" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-10-1500" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">4:00</td> <td class="tracking-tilt-cell"><input id="tilt-10-1600" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-10-1600" type="text" value=""></td> </tr> </table> <table class="tracking-table"> 
+<tr> <td class="tracking-day-cell" rowspan="5">Nov 15</td> 
+<td class="tracking-time-cell">10:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-11-1000" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-11-1000" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">11:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-11-1100" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-11-1100" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">12:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-11-1200" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-11-1200" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">1:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-11-1300" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-11-1300" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">2:00</td> <td class="tracking-tilt-cell"><input id="tilt-11-1400" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-11-1400" type="text" value=""></td> </tr> </table> <table class="tracking-table"> 
+<tr> <td class="tracking-day-cell" rowspan="5">Dec 15</td> 
+<td class="tracking-time-cell">10:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-12-1000" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-12-1000" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">11:00</td> <td class="tracking-tilt-cell"><input id="tilt-12-1100" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-12-1100" type="text" value=""></td> </tr> <tr> <td class="tracking-time-cell">12:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-12-1200" type="text" value=""></td> <td class="tracking-azimuth-cell"><input id="az-12-1200" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">1:00</td> 
+<td class="tracking-tilt-cell"><input id="tilt-12-1300" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-12-1300" type="text" value=""></td> </tr> 
+<tr> <td class="tracking-time-cell">2:00</td> <td class="tracking-tilt-cell"><input id="tilt-12-1400" type="text" value=""></td> 
+<td class="tracking-azimuth-cell"><input id="az-12-1400" type="text" value=""></td> </tr> </table> </div> </div> </div>  
+
+<div class="content-container" id="dual-container"> 
+<div class="panels-container"> 
+<div class="dual-logos-container"> 
+<div class="dual-logo"><img src="doer-logo.d14f8d17.png"></div> 
+<div class="dual-logo"><img src="umass-logo.75daf587.png"></div> 
+<div class="dual-logo"><img src="mdar-logo.74e10b91.png"></div> </div> 
+<div class="dual-links-container"> 
+<span style="font-style:italic">Materials</span> 
+<ul> <li><a href="https://www.mass.gov/files/documents/2018/04/26/Agricultural%20Solar%20Tariff%20Generation%20Unit%20Guideline%20042518.pdf" target="_blank">Guideline Regarding the Definition of ASTGU�s</a></li> 
+<li><a href="https://www.mass.gov/files/documents/2018/11/29/Application%20for%20Agriculatural%20Adder%20FINAL.pdf" target="_blank">Pre-Determination Application Form</a></li> </ul> <span style="font-style:italic">Links</span> <ul> <li><a href="https://vimeo.com/313941069" target="_blank">Webinar: Agricultural Canopy Shading Analysis Tool</a></li> 
+<li><a href="https://ag.umass.edu/clean-energy/fact-sheets/dual-use-agriculture-solar-photovoltaics" target="_blank">UMass Clean Energy Extension Dual-Use Resources (general)</a></li> 
+<li><a href="https://www.mass.gov/orgs/massachusetts-department-of-energy-resources" target="_blank">MA Department of Energy Resources</a></li> 
+<li><a href="https://www.mass.gov/orgs/massachusetts-department-of-agricultural-resources" target="_blank">MA Department of Agricultural Resources (MDAR)</a></li> </ul> </div> 
+<div style="text-align:center;margin-top:20px;"><img src="solar.ae6fcd1e.png"></div>
+ <div style="text-align:center;margin-top:5px;margin-bottom:20px;font-size:12px;font-style:italic">Source: <a href="https://ag.umass.edu/clean-energy/fact-sheets/dual-use-agriculture-solar-photovoltaics" target="_blank">UMass Amherst Clean Energy Extension</a></div> </div> </div> 
+ <div class="footer"> 
+ <div class="legal-disclaimer" onClick="ai.openPopup('disclaimer')"><span style="cursor:pointer;">Legal Disclaimer</span></div> 
+ <div>Got feedback? Report it to <a href="mailto:DOER.SMART@mass.gov?subject=Shading Analysis Tool Support Request">DOER.SMART@mass.gov</a></div> </div> </div> 
+ </body></html>
